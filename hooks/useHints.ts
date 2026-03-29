@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Platform } from 'react-native';
+import Constants, { ExecutionEnvironment } from 'expo-constants';
 
 const HINTS_KEY = 'sudoku_hints';
 const FREE_HINTS_PER_DAY = 1;
@@ -52,13 +53,15 @@ export const useHints = () => {
     setAdLoading(true);
     try {
       // react-native-google-mobile-ads requires a native build (EAS/Android Studio)
-      // In Expo Go / web, we simulate the ad loading
-      if (Platform.OS === 'web') {
-        // Web: simulated — ads cannot run in browser
+      // In Expo Go / Web, we simulate the ad loading
+      const isExpoGo = Constants.executionEnvironment === ExecutionEnvironment.StoreClient;
+
+      if (Platform.OS === 'web' || isExpoGo) {
+        // Simulated: ads cannot run in browser or Expo Go
         setTimeout(() => {
           setAdLoaded(true);
           setAdLoading(false);
-        }, 500);
+        }, 800);
         return;
       }
 
@@ -102,8 +105,10 @@ export const useHints = () => {
     }
 
     try {
-      if (Platform.OS === 'web') {
-        // Web simulation: auto-grant the reward
+      const isExpoGo = Constants.executionEnvironment === ExecutionEnvironment.StoreClient;
+
+      if (Platform.OS === 'web' || isExpoGo) {
+        // Simulation: auto-grant the reward
         const updated = { ...hintData, bonusHints: hintData.bonusHints + 1 };
         setHintData(updated);
         await saveHintData(updated);

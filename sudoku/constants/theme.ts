@@ -25,29 +25,6 @@ export const Colors = {
     tabIconDefault: '#9BA1A6',
     tabIconSelected: tintColorDark,
   },
-  sudoku: {
-    primary: '#6C63FF',       // Vibrant Purple
-    secondary: '#48CAE4',     // Sky Blue
-    error: '#EF4444',         // Red
-    background: '#F7F8FF',    // Off White
-    cardBg: '#FFFFFF',        // White card
-    cellBackground: '#FFFFFF',
-    cellSelected: '#EDE9FE',  // Light purple
-    cellHighlight: '#F5F3FF', // Very light purple
-    text: '#1A1A2E',          // Dark Navy
-    textSecondary: '#6B7280', // Gray
-    borderLight: '#E5E7EB',   // Light gray
-    borderDark: '#D1D5DB',    // Medium gray
-    accent: '#F472B6',        // Pink accent
-  },
-  ludo: {
-    red: '#EF4444',
-    blue: '#3B82F6',
-    green: '#10B981',
-    yellow: '#F59E0B',
-    background: '#F8FAFC',
-    boardBorder: '#334155',
-  }
 };
 
 export const Fonts = Platform.select({
