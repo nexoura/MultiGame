@@ -70,11 +70,11 @@ export default function GameHubScreen() {
 
         <GameCard 
           title="Chess"
-          description="Master the game of kings. Strategy and skill combined."
+          description="Master the game of kings. Strategy and skill combined. Play vs Friend or Computer."
           icon="checkerboard.rectangle"
           color="#1E293B"
-          onPress={() => {}}
-          tag="Soon"
+          onPress={() => navigation.navigate('Chess')}
+          tag="New"
         />
 
         <View style={styles.spacer} />

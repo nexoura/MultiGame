@@ -10,6 +10,7 @@ import ExploreScreen from '../screens/ExploreScreen';
 import ModalScreen from '../screens/ModalScreen';
 import { SudokuScreen } from '../games/sudoku/SudokuScreen';
 import { LudoScreen } from '../games/ludo/LudoScreen';
+import { ChessScreen } from '../games/chess/ChessScreen';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -61,6 +62,11 @@ export function RootNavigator() {
         name="Ludo" 
         component={LudoScreen} 
         options={{ title: 'Ludo Tactics' }}
+      />
+      <Stack.Screen 
+        name="Chess" 
+        component={ChessScreen} 
+        options={{ title: 'Chess' }}
       />
       <Stack.Screen
         name="modal"
