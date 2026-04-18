@@ -13,11 +13,20 @@ export const LudoToken: React.FC<LudoTokenProps> = ({ color, size, active }) => 
 
   return (
     <View style={[styles.tokenContainer, { width: size, height: size }]}>
-        <View style={[styles.outerRing, { width: size * 0.85, height: size * 0.85, backgroundColor: config.color }]}>
-            {/* Classic white ring inlay */}
-            <View style={[styles.innerCircle, { width: size * 0.6, height: size * 0.6 }]} />
+        <View style={[
+            styles.outerRing, 
+            { 
+                width: size * 0.9, 
+                height: size * 0.9, 
+                backgroundColor: config.color,
+                borderColor: '#000',
+                borderWidth: 2,
+            }
+        ]}>
+            {/* Minimal white highlight for 3D effect matching the "flat but classic" look */}
+            <View style={[styles.innerCircle, { width: size * 0.4, height: size * 0.4 }]} />
             
-            {active && <View style={styles.activeIndicator} />}
+            {active && <View style={[styles.activeIndicator, { width: size * 1.1, height: size * 1.1 }]} />}
         </View>
     </View>
   );
@@ -33,23 +42,19 @@ const styles = StyleSheet.create({
     borderRadius: 999,
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: 2,
-    borderColor: '#000000',
   },
   innerCircle: {
     borderRadius: 999,
-    borderWidth: 1.5,
-    borderColor: 'rgba(255,255,255,0.6)',
-    backgroundColor: 'transparent',
+    backgroundColor: 'rgba(255,255,255,0.3)',
     position: 'absolute',
+    top: '15%',
+    left: '15%',
   },
   activeIndicator: {
     position: 'absolute',
-    width: '120%',
-    height: '120%',
     borderRadius: 999,
     borderWidth: 2,
-    borderColor: '#FFFFFF',
-    opacity: 0.8,
+    borderColor: '#FFF',
+    opacity: 0.6,
   }
 });

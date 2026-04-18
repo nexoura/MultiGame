@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { LUDO_COLORS, PLAYER_CONFIG, PlayerColor, LUDO_SHADOWS, LUDO_RADII } from '../utils/ludoConstants';
-import { Ionicons } from '@expo/vector-icons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 interface PlayerInfoProps {
   color: PlayerColor;
@@ -20,7 +20,7 @@ export const PlayerInfo: React.FC<PlayerInfoProps> = ({ color, active, name }) =
         <View style={[styles.avatar, { backgroundColor: config.color }]}>
             <Ionicons name="person" size={20} color="#FFFFFF" />
             {active && (
-                <View style={[styles.activeIndicator, { backgroundColor: config.accent || '#4ADE80' }]} />
+                <View style={[styles.activeIndicator, { backgroundColor: '#4ADE80' }]} />
             )}
         </View>
         <View style={styles.textContainer}>
@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     borderRadius: LUDO_RADII.lg,
     borderWidth: 1.5,
     borderColor: 'rgba(255, 255, 255, 0.8)',
-    backgroundColor: LUDO_COLORS.glass,
+    backgroundColor: '#FFFFFF80', // Glass-like white
     gap: 12,
     minWidth: 140,
     ...LUDO_SHADOWS.ambient,
