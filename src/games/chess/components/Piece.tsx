@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, StyleSheet, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { PieceType, PlayerColor, UNICODE_PIECES } from '../utils/chessConstants';
 
 interface PieceProps {

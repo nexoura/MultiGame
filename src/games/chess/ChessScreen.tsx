@@ -5,7 +5,6 @@ import {
 } from 'react-native';
 import { useChessGame } from './hooks/useChessGame';
 import { ChessBoard } from './components/ChessBoard';
-import { MoveHistory } from './components/MoveHistory';
 import { Piece } from './components/Piece';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 
@@ -87,7 +86,6 @@ export const ChessScreen: React.FC = () => {
           </View>
         </View>
 
-        <MoveHistory history={history} />
 
         {isGameOver && (
           <View style={styles.overlay}>

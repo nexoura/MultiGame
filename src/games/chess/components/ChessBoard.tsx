@@ -1,8 +1,8 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import { Board, Position, Move } from '../utils/chessConstants';
-import { Square } from './Square';
+import { Board, Move, Position } from '../utils/chessConstants';
 import { Piece } from './Piece';
+import { Square } from './Square';
 
 interface ChessBoardProps {
   board: Board;
