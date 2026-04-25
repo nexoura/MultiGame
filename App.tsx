@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavigationContainer, DarkTheme, DefaultTheme } from '@react-navigation/native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { useColorScheme } from './hooks/use-color-scheme';
-import { RootNavigator } from './src/navigation/RootNavigator';
+import { useColorScheme } from '@/hooks/use-color-scheme';
+import { RootNavigator } from '@/navigation/RootNavigator';
 import { StatusBar, LogBox } from 'react-native';
 
 // Ignore specific warnings if needed

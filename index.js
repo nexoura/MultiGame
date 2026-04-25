@@ -1,8 +1,10 @@
+import 'react-native-gesture-handler';
 import { AppRegistry } from 'react-native';
 import App from './App';
+import { name as appName } from './app.json';
 
 /**
- * Register the 'sudoku' component. 
- * This must match the name in MainActivity.kt's getMainComponentName().
+ * Register the main component.
+ * The name must match the name in MainActivity.kt's getMainComponentName().
  */
-AppRegistry.registerComponent('multigame', () => App);
+AppRegistry.registerComponent(appName, () => App);

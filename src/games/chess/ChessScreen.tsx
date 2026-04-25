@@ -12,14 +12,12 @@ export const ChessScreen: React.FC = () => {
   const [vsComputer, setVsComputer] = useState(false);
   const {
     board,
-    turn,
     statusMessage,
     isGameOver,
     selectedSquare,
     validMoves,
     lastMove,
     capturedPieces,
-    history,
     selectSquare,
     resetGame,
     undoMove,
