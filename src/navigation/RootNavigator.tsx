@@ -5,6 +5,7 @@ import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
 
+import WelcomeScreen from '../screens/WelcomeScreen';
 import GameHubScreen from '../screens/GameHubScreen';
 import ExploreScreen from '../screens/ExploreScreen';
 import ModalScreen from '../screens/ModalScreen';
@@ -47,7 +48,12 @@ function TabNavigator() {
 
 export function RootNavigator() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName="Welcome">
+      <Stack.Screen
+        name="Welcome"
+        component={WelcomeScreen}
+        options={{ headerShown: false }}
+      />
       <Stack.Screen
         name="Main"
         component={TabNavigator}

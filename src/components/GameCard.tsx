@@ -1,17 +1,18 @@
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import React from 'react';
-import { Animated, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Animated, StyleSheet, Text, TouchableOpacity, View, Image, ImageSourcePropType } from 'react-native';
 
 interface GameCardProps {
   title: string;
   description: string;
-  icon: string;
+  icon?: string;
+  image?: ImageSourcePropType;
   color: string;
   onPress: () => void;
   tag?: string;
 }
 
-export function GameCard({ title, description, icon, color, onPress, tag }: GameCardProps) {
+export function GameCard({ title, description, icon, image, color, onPress, tag }: GameCardProps) {
   const scale = new Animated.Value(1);
 
   const handlePressIn = () => {
@@ -37,9 +38,13 @@ export function GameCard({ title, description, icon, color, onPress, tag }: Game
         onPressOut={handlePressOut}
         style={styles.card}
       >
-        <View style={[styles.iconContainer, { backgroundColor: color + '20' }]}>
-          <IconSymbol name={icon as any} size={32} color={color} />
-        </View>
+        {image ? (
+          <Image source={image} style={styles.logoImage} />
+        ) : (
+          <View style={[styles.iconContainer, { backgroundColor: color + '20' }]}>
+            {icon && <IconSymbol name={icon as any} size={32} color={color} />}
+          </View>
+        )}
         <View style={styles.textContainer}>
           <View style={styles.header}>
             <Text style={styles.title}>{title}</Text>
@@ -79,6 +84,12 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  logoImage: {
+    width: 60,
+    height: 60,
+    borderRadius: 18,
+    resizeMode: 'cover',
   },
   textContainer: {
     flex: 1,

@@ -3,12 +3,37 @@ import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors } from '@/constants/theme';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, useWindowDimensions, View } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, useWindowDimensions, View, Alert, Image } from 'react-native';
+
+const SudokuLogo = require('../assets/images/sudoku_logo.jpg');
+const ChessLogo = require('../assets/images/chess_logo.jpg');
+const LudoLogo = require('../assets/images/ludo_logo.jpg');
 
 export default function GameHubScreen() {
   const navigation = useNavigation<any>();
   const { width } = useWindowDimensions();
   const isTablet = width >= 600;
+
+  const handleUnreleasedGamePress = (gameName: string) => {
+    Alert.alert(
+      `${gameName} Coming Soon! 🚀`,
+      `We are currently polishing ${gameName} to ensure a premium, bug-free experience.\n\nGet ready for challenging AI opponents, local multiplayer support, and smooth tactical gameplay in our upcoming release!`,
+      [
+        {
+          text: "Notify Me",
+          onPress: () => {
+            Alert.alert("Preferences Saved", "We will notify you once this game is ready to play!");
+          },
+          style: "default"
+        },
+        {
+          text: "Got It",
+          style: "cancel"
+        }
+      ],
+      { cancelable: true }
+    );
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -21,10 +46,7 @@ export default function GameHubScreen() {
         showsVerticalScrollIndicator={false}
       >
         <View style={styles.header}>
-          <View>
-            <Text style={styles.welcome}>Welcome back,</Text>
-            <Text style={styles.title}>What's your move?</Text>
-          </View>
+          <View style={styles.headerInfo} />
           <TouchableOpacity style={styles.profileBtn}>
              <IconSymbol name="person.crop.circle.fill" size={32} color={Colors.sudoku.primary} />
           </TouchableOpacity>
@@ -53,7 +75,7 @@ export default function GameHubScreen() {
         <GameCard 
           title="Sudoku"
           description="Classic number puzzle. Train your brain with levels from Easy to Expert."
-          icon="grid.fill"
+          image={SudokuLogo}
           color={Colors.sudoku.primary}
           onPress={() => navigation.navigate('Sudoku')}
           tag="Classic"
@@ -62,18 +84,18 @@ export default function GameHubScreen() {
         <GameCard 
           title="Ludo Tactics"
           description="Tactile joy with 3D tokens and board-game parchment surfaces. Play with friends or AI."
-          icon="dice.fill"
+          image={LudoLogo}
           color="#0c50d4"
-          onPress={() => navigation.navigate('Ludo')}
+          onPress={() => handleUnreleasedGamePress('Ludo Tactics')}
           tag="Premium"
         />
 
         <GameCard 
           title="Chess"
           description="Master the game of kings. Strategy and skill combined. Play vs Friend or Computer."
-          icon="checkerboard.rectangle"
+          image={ChessLogo}
           color="#1E293B"
-          onPress={() => navigation.navigate('Chess')}
+          onPress={() => handleUnreleasedGamePress('Chess')}
           tag="New"
         />
 
@@ -93,24 +115,16 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: 20,
-    paddingTop: 40,
+    paddingTop: 24,
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: 30,
+    alignItems: 'flex-start',
+    marginBottom: 24,
   },
-  welcome: {
-    fontSize: 16,
-    color: '#64748B',
-    fontWeight: '500',
-  },
-  title: {
-    fontSize: 28,
-    fontWeight: '800',
-    color: '#1E293B',
-    marginTop: 4,
+  headerInfo: {
+    flex: 1,
   },
   profileBtn: {
     width: 48,
@@ -124,6 +138,8 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 4,
+    marginLeft: 12,
+    marginTop: 8,
   },
   featuredContainer: {
       marginBottom: 30,
