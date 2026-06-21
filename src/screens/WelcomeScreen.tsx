@@ -11,7 +11,7 @@ import {
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get('window');
 
-const GAMEVERSE_LOGO = require('../assets/images/gameverse_logo.png');
+const PLAYBOX_LOGO = require('../assets/images/playbox_logo.png');
 
 export default function WelcomeScreen() {
   const navigation = useNavigation<any>();
@@ -47,7 +47,7 @@ export default function WelcomeScreen() {
     <Animated.View style={[styles.container, { opacity: fadeAnim }]}>
       {/* Full-screen logo */}
       <Image
-        source={GAMEVERSE_LOGO}
+        source={PLAYBOX_LOGO}
         style={styles.logo}
         resizeMode="stretch"
       />
@@ -57,7 +57,7 @@ export default function WelcomeScreen() {
         <View style={styles.progressTrack}>
           <Animated.View style={[styles.progressBar, { width: progressBarWidth }]} />
         </View>
-        <Text style={styles.loadingText}>Entering the GameVerse...</Text>
+        <Text style={styles.loadingText}>Welcome to PlayBox...</Text>
       </View>
     </Animated.View>
   );
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: SCREEN_WIDTH,
     height: SCREEN_HEIGHT,
-    backgroundColor: '#E8EEFF',
+    backgroundColor: '#F0EDFF',
     justifyContent: 'center',
     alignItems: 'center',
   },
