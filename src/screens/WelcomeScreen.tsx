@@ -22,7 +22,7 @@ export default function WelcomeScreen() {
     Animated.timing(fadeAnim, {
       toValue: 1,
       duration: 600,
-      useNativeDriver: true,
+      useNativeDriver: false,
     }).start();
 
     Animated.timing(progressAnim, {
@@ -44,38 +44,43 @@ export default function WelcomeScreen() {
   });
 
   return (
-    <Animated.View style={[styles.container, { opacity: fadeAnim }]}>
-      {/* Full-screen logo */}
-      <Image
-        source={PLAYBOX_LOGO}
-        style={styles.logo}
-        resizeMode="stretch"
-      />
-
-      {/* Progress bar overlay at bottom */}
-      <View style={styles.loaderContainer}>
-        <View style={styles.progressTrack}>
-          <Animated.View style={[styles.progressBar, { width: progressBarWidth }]} />
+    <View style={styles.container}>
+      <Animated.View style={{ flex: 1, width: '100%', opacity: fadeAnim }}>
+        {/* Full-screen logo */}
+        <View style={styles.logoContainer}>
+          <Image
+            source={PLAYBOX_LOGO}
+            style={styles.logo}
+            resizeMode="contain"
+          />
         </View>
-        <Text style={styles.loadingText}>Welcome to PlayBox...</Text>
-      </View>
-    </Animated.View>
+
+        {/* Progress bar overlay at bottom */}
+        <View style={styles.loaderContainer}>
+          <View style={styles.progressTrack}>
+            <Animated.View style={[styles.progressBar, { width: progressBarWidth }]} />
+          </View>
+          <Text style={styles.loadingText}>Welcome to PlayBox...</Text>
+        </View>
+      </Animated.View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: SCREEN_WIDTH,
-    height: SCREEN_HEIGHT,
     backgroundColor: '#F0EDFF',
     justifyContent: 'center',
     alignItems: 'center',
   },
+  logoContainer: {
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F0EDFF',
+  },
   logo: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
     width: SCREEN_WIDTH,
     height: SCREEN_HEIGHT,
   },

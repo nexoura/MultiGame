@@ -3,7 +3,8 @@ import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors } from '@/constants/theme';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, useWindowDimensions, View, Alert, Image } from 'react-native';
+import { ScrollView, StyleSheet, Text, TouchableOpacity, useWindowDimensions, View, Alert, Image } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const SudokuLogo = require('../assets/images/sudoku_logo.jpg');
 const ChessLogo = require('../assets/images/chess_logo.jpg');
