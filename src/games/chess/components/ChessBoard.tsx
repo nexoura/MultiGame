@@ -52,14 +52,16 @@ export const ChessBoard: React.FC<ChessBoardProps> = ({
 
 const styles = StyleSheet.create({
   board: {
-    padding: 12,
-    backgroundColor: '#5c2c1a',
-    borderRadius: 4,
-    elevation: 10,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.5,
-    shadowRadius: 10,
+    backgroundColor: '#231f1d',
+    borderWidth: 12,
+    borderColor: '#231f1d',
+    borderRadius: 12,
+    elevation: 12,
+    shadowColor: '#110d0c',
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.4,
+    shadowRadius: 16,
+    overflow: 'hidden',
   },
   row: {
     flexDirection: 'row',

@@ -27,12 +27,12 @@ export const Square: React.FC<SquareProps> = ({
       style={[
         styles.square,
         { width: squareSize, height: squareSize },
-        { backgroundColor: isLight ? '#dfbb9d' : '#864d36' },
-        isSelected && styles.selected,
-        isLastMove && styles.lastMove,
+        { backgroundColor: isLight ? '#a6a791' : '#393431' },
       ]}
     >
       {children}
+      {isLastMove && <View style={styles.lastMoveOverlay} />}
+      {isSelected && <View style={styles.selectedOverlay} />}
       {isValidMove && (
         <View style={styles.validMoveIndicator}>
           <View style={styles.validMoveDot} />
@@ -46,13 +46,17 @@ const styles = StyleSheet.create({
   square: {
     justifyContent: 'center',
     alignItems: 'center',
+    position: 'relative',
   },
-  selected: {
-    backgroundColor: '#ffdb58',
+  selectedOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(233, 193, 118, 0.15)',
+    borderWidth: 2,
+    borderColor: '#e9c176',
   },
-  lastMove: {
-    backgroundColor: '#f6e0b3',
-    opacity: 0.8,
+  lastMoveOverlay: {
+    ...StyleSheet.absoluteFillObject,
+    backgroundColor: 'rgba(233, 193, 118, 0.25)',
   },
   validMoveIndicator: {
     ...StyleSheet.absoluteFillObject,
@@ -60,9 +64,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   validMoveDot: {
-    width: 15,
-    height: 15,
-    borderRadius: 7.5,
-    backgroundColor: 'rgba(0, 0, 0, 0.15)',
+    width: 14,
+    height: 14,
+    borderRadius: 7,
+    backgroundColor: 'rgba(233, 193, 118, 0.6)',
   },
 });

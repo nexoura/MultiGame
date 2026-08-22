@@ -47,6 +47,24 @@ export const Colors = {
     yellow: '#F59E0B',
     background: '#F8FAFC',
     boardBorder: '#334155',
+  },
+  chess: {
+    background: '#110d0c',
+    surface: '#161311',
+    primary: '#e3beb8',          // terracotta
+    secondary: '#e9c176',        // gold
+    tertiary: '#c8c8b0',         // sage
+    onBackground: '#eae1dd',
+    onSurface: '#eae1dd',
+    outline: '#9a8f80',
+    outlineVariant: '#4e4639',
+    surfaceContainerLowest: '#110d0c',
+    surfaceContainerLow: '#1f1b19',
+    surfaceContainer: '#231f1d',
+    surfaceContainerHigh: '#2e2927',
+    surfaceContainerHighest: '#393431',
+    tertiaryContainer: '#a6a791',
+    onSecondary: '#412d00',
   }
 };
 

@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import { Platform } from 'react-native';
+import { Platform, Alert } from 'react-native';
 
 const HINTS_KEY = 'sudoku_hints';
 const FREE_HINTS_PER_DAY = 1;
@@ -97,7 +97,7 @@ export const useHints = () => {
 
   const showRewardedAd = useCallback(async (): Promise<boolean> => {
     if (!adLoaded) {
-      alert('Ad is still loading, please wait a moment...');
+      Alert.alert('Hint Ad', 'Ad is still loading, please wait a moment...');
       return false;
     }
 

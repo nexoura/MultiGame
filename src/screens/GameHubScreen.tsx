@@ -15,27 +15,6 @@ export default function GameHubScreen() {
   const { width } = useWindowDimensions();
   const isTablet = width >= 600;
 
-  const handleUnreleasedGamePress = (gameName: string) => {
-    Alert.alert(
-      `${gameName} Coming Soon! 🚀`,
-      `We are currently polishing ${gameName} to ensure a premium, bug-free experience.\n\nGet ready for challenging AI opponents, local multiplayer support, and smooth tactical gameplay in our upcoming release!`,
-      [
-        {
-          text: "Notify Me",
-          onPress: () => {
-            Alert.alert("Preferences Saved", "We will notify you once this game is ready to play!");
-          },
-          style: "default"
-        },
-        {
-          text: "Got It",
-          style: "cancel"
-        }
-      ],
-      { cancelable: true }
-    );
-  };
-
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView 
@@ -87,7 +66,7 @@ export default function GameHubScreen() {
           description="Tactile joy with 3D tokens and board-game parchment surfaces. Play with friends or AI."
           image={LudoLogo}
           color="#0c50d4"
-          onPress={() => handleUnreleasedGamePress('Ludo Tactics')}
+          onPress={() => navigation.navigate('Ludo')}
           tag="Premium"
         />
 
@@ -96,7 +75,7 @@ export default function GameHubScreen() {
           description="Master the game of kings. Strategy and skill combined. Play vs Friend or Computer."
           image={ChessLogo}
           color="#1E293B"
-          onPress={() => handleUnreleasedGamePress('Chess')}
+          onPress={() => navigation.navigate('Chess')}
           tag="New"
         />
 
